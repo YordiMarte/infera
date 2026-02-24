@@ -1,26 +1,16 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": ".",
+    "outDir": "dist",
     "module": "Node16",
     "moduleResolution": "node16",
-
-    "rootDir": "./src",
-    "outDir": "./dist",
-
     "target": "ES2021",
-    "sourceMap": true,
-
     "strict": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-
-    "declaration": true,
-    "removeComments": true,
-    "incremental": true
-  }
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src/**/*.ts"]
 }
