@@ -1,7 +1,41 @@
-version: "3.9"
-
 services:
+  gateway-api:
+    image: infera-gateway-api
+    container_name: infera-gateway-api
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    restart: unless-stopped
+
   redis:
     image: redis:7-alpine
+    container_name: infera-redis
     ports:
       - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: infera-postgres
+    environment:
+      POSTGRES_USER: infera
+      POSTGRES_PASSWORD: infera
+      POSTGRES_DB: infera
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U infera"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:
