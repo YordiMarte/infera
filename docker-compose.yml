@@ -1,0 +1,24 @@
+services:
+  gateway-api:
+    build: ./apps/gateway-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/gateway-api:/app
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: infera
+      POSTGRES_PASSWORD: infera
+      POSTGRES_DB: infera
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"

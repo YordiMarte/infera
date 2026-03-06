@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
-    "rootDir": ".",
+    "rootDir": "src",
     "outDir": "dist",
     "module": "Node16",
     "moduleResolution": "node16",

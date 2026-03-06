@@ -15,6 +15,9 @@
   },
   "dependencies": {
     "@nestjs/config": "^4.0.3",
-    "ioredis": "^5.9.3"
+    "@nestjs/typeorm": "^11.0.0",
+    "ioredis": "^5.9.3",
+    "pg": "^8.18.0",
+    "typeorm": "^0.3.28"
   }
 }
