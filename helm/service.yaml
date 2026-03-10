@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: infera-gateway
+spec:
+  selector:
+    app: infera
+  ports:
+    - port: 80
+      targetPort: 3000

@@ -1,0 +1,20 @@
+name: deploy-infera
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t infera/gateway:latest -f docker/Dockerfile.gateway .
+
+      - name: Deploy with Helm
+        run: |
+          helm upgrade --install infera infra/helm/infera

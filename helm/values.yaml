@@ -1,0 +1,8 @@
+image:
+  respository: infera/gateway
+  tag: latest
+
+  replicaCount: 2
+
+service:
+  port: 3000
