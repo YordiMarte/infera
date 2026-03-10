@@ -5,6 +5,7 @@ import { RedisModule } from './redis/redis.module';
 import { RateLimitMiddleware } from './middleware/rate-limit.middleware';
 import { DatabaseModule } from './database/database.module';
 import { InferenceController } from './inference/inference.controller';
+import { InferenceService } from './inference/inference.service';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { InferenceController } from './inference/inference.controller';
       provide: 'APP_GUARD',
       useClass: RateLimitMiddleware,
     },
+    InferenceService,
   ],
 })
 export class AppModule implements NestModule {
